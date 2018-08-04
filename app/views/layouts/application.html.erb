@@ -12,6 +12,9 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
+        <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end%>
         <%= link_to "app",'#', id:"logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
@@ -26,6 +29,7 @@
 
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </div>
   </body>
 </html>
