@@ -15,11 +15,11 @@
         <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end%>
-        <%= link_to "app",'#', id:"logo" %>
+        <%= link_to "app", root_path, id:"logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", 'root_path' %></li>
-            <li><%= link_to "Help", 'help_path' %></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", help_path %></li>
             <% if logged_in? %>
             <li><%= link_to "Users", '#' %></li>
             <li class="dropdown">
