@@ -5,6 +5,22 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @users}
+    end
+  end
+
+  def search
+    @users = User.search do
+      keywords params[:query]
+    end.results
+
+    respond_to do |format|
+      format.html { render :action => "index"}
+      format.xml { render :xml => @users}
+    end
   end
 
   def destroy
