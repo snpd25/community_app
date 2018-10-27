@@ -4,7 +4,27 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
+<<<<<<< HEAD
     @users = User.where(activated: FILL_IN).paginate(page: params[:page])
+=======
+    @users = User.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @users}
+    end
+  end
+
+  def search
+    @users = User.search do
+      keywords params[:query]
+    end.results
+
+    respond_to do |format|
+      format.html { render :action => "index"}
+      format.xml { render :xml => @users}
+    end
+>>>>>>> user_login
   end
 
   def destroy

@@ -11,6 +11,7 @@ gem 'faker', '~> 1.7.3'
 gem 'carrierwave', '1.2.2'
 gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'sunspot_rails'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use Puma as the app server
@@ -51,6 +52,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'sunspot_solr'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
